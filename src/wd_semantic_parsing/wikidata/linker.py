@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-from semantic_parsing.wikidata.gazetteer import get_gazetteer
-from semantic_parsing.wikidata.entity_db import get_entity_db
+from wd_semantic_parsing.wikidata.gazetteer import get_gazetteer
+from wd_semantic_parsing.wikidata.entity_db import get_entity_db
 
 
 class EntityLinker:

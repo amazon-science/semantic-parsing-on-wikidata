@@ -6,8 +6,8 @@ import gzip
 import json
 import logging
 
-from semantic_parsing.wikidata import WIKIDATA_DIR, WIKIDATA_DUMP_URL, WIKIDATA_DUMP_PATH, WIKIDATA_ENTITIES, WIKIMEDIA_DISAMBIGUATION_PAGES
-from semantic_parsing.utils import init_logging, JsonEntries, mkdir, wget
+from wd_semantic_parsing.wikidata import WIKIDATA_DIR, WIKIDATA_DUMP_URL, WIKIDATA_DUMP_PATH, WIKIDATA_ENTITIES, WIKIMEDIA_DISAMBIGUATION_PAGES
+from wd_semantic_parsing.utils import init_logging, JsonEntries, mkdir, wget
 
 
 def has_path(dct, keys):

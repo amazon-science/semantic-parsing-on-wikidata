@@ -1,11 +1,11 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-from semantic_parsing.utils import init_logging
-from semantic_parsing.wikidata.dump_entities import extract_entities
-from semantic_parsing.wikidata.pageviews import download_pageviews_data
-from semantic_parsing.wikidata.merge_entities_pageviews import merge_entities_pageviews
-from semantic_parsing.wikidata.gazetteer import build_gazetteer
-from semantic_parsing.wikidata.entity_db import build_entity_db
+from wd_semantic_parsing.utils import init_logging
+from wd_semantic_parsing.wikidata.dump_entities import extract_entities
+from wd_semantic_parsing.wikidata.pageviews import download_pageviews_data
+from wd_semantic_parsing.wikidata.merge_entities_pageviews import merge_entities_pageviews
+from wd_semantic_parsing.wikidata.gazetteer import build_gazetteer
+from wd_semantic_parsing.wikidata.entity_db import build_entity_db
 
 
 def preprocess(lang='en'):

@@ -3,7 +3,7 @@ This software package provides utilities to support semantic parsing tasks targe
 
 ### SPARQL to FunQL
 According to [Guo, Jiaqi, et al. "Benchmarking Meaning Representations in Neural Semantic Parsing." EMNLP 2020](https://www.aclweb.org/anthology/2020.emnlp-main.118/), "Neural Semantic Parsing approaches exhibit notably different performance when they are trained to generate different meaning representations".
-In particular, in the authors conclude that: "according to our experimental results, FunQL tends to outperform Lambda Calculus and Prolog in neural semantic parsing. Additionally, FunQL is relatively robust against program alias. Hence, when developers need to design an MR for a new domain, FunQL is recommended to be the first choice."
+In particular, the authors conclude that: "according to our experimental results, FunQL tends to outperform Lambda Calculus and Prolog in neural semantic parsing. Additionally, FunQL is relatively robust against program alias. Hence, when developers need to design an MR for a new domain, FunQL is recommended to be the first choice."
 
 This software package allows to compile a SPARQL query into a FunQL query, and back from a FunQL query into a SPARQL query.
 
@@ -18,7 +18,7 @@ SELECT ?ans_0 WHERE {
 
 
 ```python
-from semantic_parsing.sparql.sparql_to_mrl import sparql_to_mrl
+from wd_semantic_parsing.sparql.sparql_to_mrl import sparql_to_mrl
 
 sparql_to_mrl('SELECT ?ans_0 WHERE { wd:Q142 wdt:P36 ?x_0 . ?x_0 wdt:P1082 ?ans_0 . }')
 
@@ -26,7 +26,7 @@ Out: wd.predicate.*wdt:P1082(wd.predicate.*wdt:P36(wd:Q142))
 ```
 
 ```python
-from semantic_parsing.sparql.mrl_to_sparql import mrl_to_sparql
+from wd_semantic_parsing.sparql.mrl_to_sparql import mrl_to_sparql
 
 mrl_to_sparql('wd.predicate.*wdt:P1082(wd.predicate.*wdt:P36(wd:Q142))')
 
@@ -44,7 +44,7 @@ This allows to generate a gazetteer that returns all the possible entities that 
 For distinctive names the entity linking is not ambiguous:
 
 ```
-from semantic_parsing.wikidata.linker import EntityLinker
+from wd_semantic_parsing.wikidata.linker import EntityLinker
 
 el = EntityLinker()
 
@@ -104,7 +104,7 @@ Install:
 Pre-process Wikidata:
 
 ```
-python src/semantic_parsing/wikidata/preprocess.py
+python src/wd_semantic_parsing/wikidata/preprocess.py
 ```
 
 ## Security

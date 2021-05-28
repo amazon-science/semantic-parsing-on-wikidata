@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT-0
 import pytest
 
-from semantic_parsing.sparql.mrl_to_sparql import mrl_to_sparql
+from wd_semantic_parsing.sparql.mrl_to_sparql import mrl_to_sparql
 
 
 TESTS = (

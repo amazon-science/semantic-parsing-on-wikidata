@@ -5,8 +5,8 @@ from os import path
 
 from pyparsing import ParseException
 
-from semantic_parsing.datasets.utils import load_json, TextCleaner
-from semantic_parsing.sparql.sparql_to_mrl import sparql_to_mrl
+from wd_semantic_parsing.datasets.utils import load_json, TextCleaner
+from wd_semantic_parsing.sparql.sparql_to_mrl import sparql_to_mrl
 
 
 class LC_QUAD2:

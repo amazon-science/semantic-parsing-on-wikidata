@@ -6,8 +6,8 @@ from collections import Counter
 from datetime import datetime, timedelta
 import logging
 
-from semantic_parsing.wikidata import WIKIDATA_PAGEVIEWS_URL, WIKIDATA_PAGEVIEWS_DIR, WIKIDATA_PAGEVIEWS
-from semantic_parsing.utils import init_logging, dates, dump_counter, load_dict, mkdir, format_date, wget
+from wd_semantic_parsing.wikidata import WIKIDATA_PAGEVIEWS_URL, WIKIDATA_PAGEVIEWS_DIR, WIKIDATA_PAGEVIEWS
+from wd_semantic_parsing.utils import init_logging, dates, dump_counter, load_dict, mkdir, format_date, wget
 
 
 PAGEVIEWS_FILE = 'pageviews-%Y%m%d-%%02d0000.gz'

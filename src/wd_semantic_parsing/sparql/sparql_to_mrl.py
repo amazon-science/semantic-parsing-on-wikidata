@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT-0
 from rdflib.term import Variable
 
-from semantic_parsing.mrl.data import MRL, Object, Predicate
-from semantic_parsing.sparql.data import SPARQL, SPARQL_SELECT, SPARQL_ASK, ContainsExpr, YearExpr, LiteralExpr, LCaseExpr, RelationalExpr, LangExpr, StrStartsExpr
+from wd_semantic_parsing.mrl.data import MRL, Object, Predicate
+from wd_semantic_parsing.sparql.data import SPARQL, SPARQL_SELECT, SPARQL_ASK, ContainsExpr, YearExpr, LiteralExpr, LCaseExpr, RelationalExpr, LangExpr, StrStartsExpr
 
 
 OPERATORS = {

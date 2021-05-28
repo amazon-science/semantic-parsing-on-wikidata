@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT-0
 import pytest
 
-from semantic_parsing.mrl.data import MRL
-from semantic_parsing.mrl.parser import parse_mrl
+from wd_semantic_parsing.mrl.data import MRL
+from wd_semantic_parsing.mrl.parser import parse_mrl
 
 
 TESTS = (

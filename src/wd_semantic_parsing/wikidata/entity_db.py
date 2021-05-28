@@ -3,8 +3,8 @@
 from os import path
 import logging
 
-from semantic_parsing.wikidata import WIKIDATA_DIR, WIKIDATA_ENTITIES_WITH_PAGEVIEWS
-from semantic_parsing.utils import init_logging, JsonSQLite, get_json_lines, interactive
+from wd_semantic_parsing.wikidata import WIKIDATA_DIR, WIKIDATA_ENTITIES_WITH_PAGEVIEWS
+from wd_semantic_parsing.utils import init_logging, JsonSQLite, get_json_lines, interactive
 
 
 ENTITIES_PATH = path.join(WIKIDATA_DIR, 'entities.sqlite3')

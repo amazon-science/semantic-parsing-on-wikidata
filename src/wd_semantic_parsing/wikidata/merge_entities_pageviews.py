@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MIT-0
 import logging
 
-from semantic_parsing.wikidata import WIKIDATA_ENTITIES, WIKIDATA_PAGEVIEWS, WIKIDATA_ENTITIES_WITH_PAGEVIEWS
-from semantic_parsing.utils import init_logging, get_json_lines, load_dict, JsonEntries
+from wd_semantic_parsing.wikidata import WIKIDATA_ENTITIES, WIKIDATA_PAGEVIEWS, WIKIDATA_ENTITIES_WITH_PAGEVIEWS
+from wd_semantic_parsing.utils import init_logging, get_json_lines, load_dict, JsonEntries
 
 
 def find_pageviews(pageviews, entity, lang):

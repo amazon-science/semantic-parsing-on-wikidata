@@ -1,6 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-from semantic_parsing.mrl.data import MRL, Predicate, Object
+from wd_semantic_parsing.mrl.data import MRL, Predicate, Object
+
 
 class MRL_ParsingException(Exception): pass
 

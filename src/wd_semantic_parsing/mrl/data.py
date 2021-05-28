@@ -1,6 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
-from semantic_parsing.sparql.data import Object
+from wd_semantic_parsing.sparql.data import Object
 
 
 class Predicate:

@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: MIT-0
 from rdflib.term import Variable
 
-from semantic_parsing.mrl.data import MRL, Predicate
-from semantic_parsing.mrl.parser import parse_mrl
-from semantic_parsing.sparql.data import SPARQL, SPARQL_ASK, SPARQL_SELECT, ContainsExpr, YearExpr, OrderBy, RelationalExpr, LCaseExpr, LangExpr, StrStartsExpr
+from wd_semantic_parsing.mrl.data import MRL, Predicate
+from wd_semantic_parsing.mrl.parser import parse_mrl
+from wd_semantic_parsing.sparql.data import SPARQL, SPARQL_ASK, SPARQL_SELECT, ContainsExpr, YearExpr, OrderBy, RelationalExpr, LCaseExpr, LangExpr, StrStartsExpr
 
 
 COMPARISONS = {
