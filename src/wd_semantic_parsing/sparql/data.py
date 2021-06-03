@@ -4,6 +4,8 @@
 See SPARQL 1.1 Query Language
 https://www.w3.org/TR/2013/REC-sparql11-query-20130321/
 """
+import logging
+
 from pyparsing import ParseException
 
 from rdflib.plugins.sparql.parser import parseQuery
@@ -182,6 +184,7 @@ class SPARQL:
         self.distinct = False
         self.variables = []
         self.count = None
+        self.sum = None
         self.triples = []
         self.filters = []
         self.order_by = None
@@ -195,6 +198,8 @@ class SPARQL:
         
         if self.count is not None:
             str_buffer.append(f'(COUNT(?{self.count}) AS ?count)')
+        elif self.sum is not None:
+            str_buffer.append(f'(SUM(?{self.sum}) AS ?sum)')
         else:
             for var in self.variables:
                 str_buffer.append(f'?{var}')
@@ -231,6 +236,8 @@ class SPARQL:
         assert len(results) == 2
         assert not results[0]
         query = results[1]
+        logging.debug(query)
+        
         form = QUERY_FORMS[query.name]
         sparql = SPARQL(form)
         sparql.distinct = query.modifier == 'DISTINCT'
@@ -243,6 +250,10 @@ class SPARQL:
                     expr = get_expr(p['expr'])
                     if expr.name == 'Aggregate_Count':
                         sparql.count = str(get_expr(expr['vars']))
+                    elif expr.name == 'Aggregate_Sum':
+                        sparql.sum = str(get_expr(expr['vars']))
+                    else:
+                        raise Exception(f"Unsupported SELECT expression: {expr.name}")
         
         for part in query.where.part:
             if part.name == 'TriplesBlock':

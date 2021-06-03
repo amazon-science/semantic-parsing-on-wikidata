@@ -13,8 +13,8 @@ from pathlib import Path
 import subprocess
 
 
-def init_logging():
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M.%S')
+def init_logging(debug=False):
+    logging.basicConfig(level=logging.DEBUG if debug else logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s', datefmt='%Y-%m-%d %H:%M.%S')
 
 
 def mkdir(dirpath):

@@ -6,7 +6,7 @@ from wd_semantic_parsing.sparql.sparql_to_mrl import sparql_to_mrl
 
 
 TESTS = (
-    # LC QuAD2 Test-Set
+    ### LC QuAD2 ###
     
     # uid 20258: What country is Mahmoud Abbas the head of state of?
     ('SELECT DISTINCT ?sbj WHERE { ?sbj wdt:P35 wd:Q127998 . ?sbj wdt:P31 wd:Q6256 . }',
@@ -55,6 +55,16 @@ TESTS = (
     # uid 24144: what is the game name starts with z
     ("SELECT DISTINCT ?sbj ?sbj_label WHERE { ?sbj wdt:P31 wd:Q11410 . ?sbj rdfs:label ?sbj_label . FILTER(STRSTARTS(lcase(?sbj_label), 'z')) . FILTER (lang(?sbj_label) = 'en') } LIMIT 25 ",
      'wd.predicate.*rdfs:label(wd.predicate.wdt:P31(wd:Q11410)) & wd.operator.label_starts_with("z", "en")'),
+    
+    #### QALD 7 ###
+    
+    # Does the Isar flow into a lake?
+    ("ASK WHERE { wd:Q106588 wdt:P403 ?x_0 . ?x_0 wdt:P31 wd:Q23397 . }",
+     'wd.operator.assert(wd.predicate.*wdt:P403(wd:Q106588) & wd.predicate.wdt:P31(wd:Q23397))'),
+    
+    # How many goals did Pelé score?
+    ("SELECT (SUM(?goals) as ?total) WHERE { wd:Q12897 p:P54 ?teamMembership .  ?teamMembership pq:P1351 ?goals . }",
+     'wd.operator.sum(wd.predicate.*pq:P1351(wd.predicate.*p:P54(wd:Q12897)))'),
 )
 
 

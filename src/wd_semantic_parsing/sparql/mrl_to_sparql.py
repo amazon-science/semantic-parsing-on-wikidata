@@ -1,5 +1,6 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: MIT-0
+import logging
 from rdflib.term import Variable
 
 from wd_semantic_parsing.mrl.data import MRL, Predicate
@@ -32,6 +33,7 @@ def build_triple(predicate, bound_var, obj):
 
 def compile_mrl(mrl, sparql, bound_var, var_index=0):
     var = Variable(bound_var) if bound_var else None
+    logging.debug(f'var: {var}\nmrl: {mrl}')
     
     if mrl.predicate.ptype == 'predicate':
         arg = mrl.args[0]
@@ -76,6 +78,10 @@ def compile_mrl(mrl, sparql, bound_var, var_index=0):
             compile_mrl(mrl.args[0], sparql, bound_var, var_index)
             sparql.count = bound_var
         
+        if o_id == 'sum':
+            compile_mrl(mrl.args[0], sparql, bound_var, var_index)
+            sparql.sum = bound_var
+        
         elif o_id == 'order_by':
             compile_mrl(mrl.args[0], sparql, bound_var, var_index)
             obj, var_index = assign_var(var_index)
@@ -88,6 +94,11 @@ def compile_mrl(mrl, sparql, bound_var, var_index=0):
             obj, var_index = assign_var(var_index)
             compile_mrl(mrl.args[0], sparql, obj, var_index)
             sparql.filters.append(RelationalExpr(obj, COMPARISONS[o_id], mrl.args[1]))
+        
+        elif o_id == 'assert':
+            if len(mrl.args) == 1:
+                obj, var_index = assign_var(var_index)
+                compile_mrl(mrl.args[0], sparql, str(obj), var_index)
 
 
 def mrl_to_sparql(mrl):

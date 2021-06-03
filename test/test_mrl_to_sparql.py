@@ -44,6 +44,12 @@ TESTS = (
     
     ('wd.predicate.*rdfs:label(wd.predicate.wdt:P31(wd:Q11410)) & wd.operator.label_starts_with("z", "en")',
      'SELECT DISTINCT ?ans_0 WHERE { ?x_0 wdt:P31 wd:Q11410 . ?x_0 rdfs:label ?ans_0 . FILTER(STRSTARTS(LCASE(?ans_0), "z")) . FILTER(LANG(?ans_0) = "en") . } LIMIT 25'),
+    
+    ('wd.operator.assert(wd.predicate.*wdt:P403(wd:Q106588) & wd.predicate.wdt:P31(wd:Q23397))',
+     "ASK WHERE { wd:Q106588 wdt:P403 ?x_0 . ?x_0 wdt:P31 wd:Q23397 . }"),
+    
+    ('wd.operator.sum(wd.predicate.*pq:P1351(wd.predicate.*p:P54(wd:Q12897)))',
+     "SELECT (SUM(?ans_0) AS ?sum) WHERE { wd:Q12897 p:P54 ?x_0 . ?x_0 pq:P1351 ?ans_0 . }"),
 )
 
 

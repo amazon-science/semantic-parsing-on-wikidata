@@ -2,7 +2,6 @@
 # SPDX-License-Identifier: MIT-0
 from wd_semantic_parsing.mrl.data import MRL, Predicate, Object
 
-
 class MRL_ParsingException(Exception): pass
 
 
